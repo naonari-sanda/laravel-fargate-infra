@@ -19,7 +19,7 @@ resource "aws_iam_role" "deployer" {
             "sts:AssumeRole",
             "sts:TagSession"
           ],
-          "principal" : {
+          "Principal" : {
             "AWS" : aws_iam_user.github.arn
           }
         }
@@ -37,6 +37,6 @@ data "aws_iam_policy" "ecr_power_user" {
 }
 
 resource "aws_iam_role_policy_attachment" "role_deployer_policy_ecr_power_user" {
-  role = aws_iam_role.deployer.name
-  policy_arn = data.aws_iam-policy.ecr_power_user.arn
+  role       = aws_iam_role.deployer.name
+  policy_arn = data.aws_iam_policy.ecr_power_user.arn
 }
