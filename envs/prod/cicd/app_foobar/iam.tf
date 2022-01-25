@@ -17,7 +17,19 @@ resource "aws_iam_role" "deployer" {
           "Effect" : "Allow",
           "Action" : [
             "sts:AssumeRole",
-            "sts:TagSession"
+            "sts:TagSession",
+            "ecr:GetAuthorizationToken",
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:GetDownloadUrlForLayer",
+            "ecr:GetRepositoryPolicy",
+            "ecr:DescribeRepositories",
+            "ecr:ListImages",
+            "ecr:DescribeImages",
+            "ecr:BatchGetImage",
+            "ecr:InitiateLayerUpload",
+            "ecr:UploadLayerPart",
+            "ecr:CompleteLayerUpload",
+            "ecr:PutImage",
           ],
           "Principal" : {
             "AWS" : aws_iam_user.github.arn
