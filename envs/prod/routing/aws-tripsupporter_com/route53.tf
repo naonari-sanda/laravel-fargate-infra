@@ -1,3 +1,3 @@
 data "aws_route53_zone" "this" {
-  name = "appfoobar.link"
+  name = "aws-tripsupporter.com"
 }
