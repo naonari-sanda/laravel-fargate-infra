@@ -19,7 +19,7 @@ resource "aws_lb" "this" {
 
   subnets = [
     for s in data.terraform_remote_state.network_main.outputs.subnet_public : s.id
-  ]                                                       
+  ]
 
   tags = {
     Name = "${local.name_prefix}-tripsupporter-com"
@@ -27,7 +27,8 @@ resource "aws_lb" "this" {
 }
 
 resource "aws_lb_listener" "https" {
-  count             = var.enable_alb ? 1 : 0
+  count = var.enable_alb ? 1 : 0
+  
   certificate_arn   = aws_acm_certificate.root.arn
   load_balancer_arn = aws_lb.this[0].arn
   port              = "443"
@@ -46,7 +47,8 @@ resource "aws_lb_listener" "https" {
 }
 
 resource "aws_lb_listener" "redirect_http_to_https" {
-  count             = var.enable_alb ? 1 : 0
+  count = var.enable_alb ? 1 : 0
+
   load_balancer_arn = aws_lb.this[0].arn
   port              = 80
   protocol          = "HTTP"
