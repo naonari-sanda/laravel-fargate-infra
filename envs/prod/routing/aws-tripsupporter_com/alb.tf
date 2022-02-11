@@ -28,7 +28,7 @@ resource "aws_lb" "this" {
 
 resource "aws_lb_listener" "https" {
   count = var.enable_alb ? 1 : 0
-  
+
   certificate_arn   = aws_acm_certificate.root.arn
   load_balancer_arn = aws_lb.this[0].arn
   port              = "443"
