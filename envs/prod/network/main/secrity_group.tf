@@ -47,7 +47,7 @@ resource "aws_security_group" "vpc" {
   }
 
   tags = {
-
+    
     Name = "${aws_vpc.this.tags.Name}-vpc"
   }
 }
