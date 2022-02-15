@@ -52,7 +52,7 @@ resource "aws_iam_role_policy" "s3" {
         {
           "Effect" : "Allow",
           "Action" : [
-            "s3:GetObfect"
+            "s3:GetObject"
           ],
           "Resource" : "arn:aws:s3:::naonari-tfstate/${local.system_name}/${local.env_name}/cicd/app_${local.service_name}_*.tfstate"
         },
