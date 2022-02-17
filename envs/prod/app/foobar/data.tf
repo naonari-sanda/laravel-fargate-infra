@@ -12,12 +12,12 @@ data "terraform_remote_state" "network_main" {
   }
 }
 
-data "terraform_remote_state" "routing_aws-tripsupporter_com" {
+data "terraform_remote_state" "routing_naonarisanda_com" {
   backend = "s3"
 
   config = {
     bucket = "naonari-tfstate"
-    key    = "${local.system_name}/${local.env_name}/routing/aws-tripsupporter_com_v1.0.0.tfstate"
+    key    = "${local.system_name}/${local.env_name}/routing/naonarisanda_com_v1.0.0.tfstate"
     region = "ap-northeast-1"
   }
 }

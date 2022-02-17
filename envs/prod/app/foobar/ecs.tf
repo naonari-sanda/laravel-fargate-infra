@@ -137,7 +137,7 @@ resource "aws_ecs_service" "this" {
   load_balancer {
     container_name   = "nginx"
     container_port   = 80
-    target_group_arn = data.terraform_remote_state.routing_aws-tripsupporter_com.outputs.lb_target_group_foobar_arn
+    target_group_arn = data.terraform_remote_state.routing_naonarisanda_com.outputs.lb_target_group_foobar_arn
   }
 
   health_check_grace_period_seconds = 60
