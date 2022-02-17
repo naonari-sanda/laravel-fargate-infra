@@ -32,7 +32,7 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution" {
 
 resource "aws_iam_policy" "ssm" {
   name = "${local.name_prefix}-${local.service_name}-ssm"
-  
+
   policy = jsonencode(
     {
       "Version" : "2012-10-17",
