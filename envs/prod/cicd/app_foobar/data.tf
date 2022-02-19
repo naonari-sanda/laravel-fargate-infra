@@ -4,5 +4,5 @@ data "aws_ecs_service" "this" {
 }
 
 data "aws_s3_bucket" "env_file" {
-  bucket = "laranao-${local.name_prefix}-${local.server_name}-env-file"
+  bucket = "laranao-${local.name_prefix}-${local.service_name}-env-file"
 }
